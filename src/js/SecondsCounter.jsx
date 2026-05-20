@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 
-const SecondsCounter = () => {
+const SecondsCounter = () => { 
     const [timer, setTimer] = useState(0);
     const [active, setActive] = useState(false);
     const [countdown, setCountdown] = useState(false);
-    const [input, setInput] = useState(0);
+    const [input, setInput] = useState(0); 
     const [alertAt, setAlertAt] = useState(10);
     const [showAlert, setShowAlert] = useState(false);
 
@@ -62,6 +62,7 @@ const SecondsCounter = () => {
             </div>
 
             <div className="d-flex flex-wrap gap-2 mb-3 align-items-center justify-content-center">
+                <input type="number" className="form-control form-control-sm w-auto" min="0" value={input} onChange={e => setInput(Number(e.target.value))} placeholder="Initial Time" disabled={active} />
                 <input type="number" className="form-control form-control-sm w-auto" min="0" value={alertAt} onChange={e => setAlertAt(Number(e.target.value))} placeholder="Alerta en" disabled={active} />
                 <select className="form-select form-select-sm w-auto" value={countdown ? "down" : "up"} onChange={e => setCountdown(e.target.value === "down") } disabled={active}>
                     <option value="up">Ascendente</option>
